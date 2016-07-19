@@ -1,0 +1,14 @@
+<!-- shell_menu.html -->
+
+<div id="view_setting" layout="row" layout-align="center center">
+    <md-content layout-padding >
+        <md-input-container>
+            <label>View</label>
+            <md-select ng-model="shell.visMode"> 
+                <md-option ng-repeat="vis in shell.visModeOptions" value="{{vis}}">
+                    {{vis}} 
+                </md-option>
+            </md-select>
+        </md-input-container>
+    </md-content>
+</div>

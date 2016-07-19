@@ -1,0 +1,27 @@
+<!-- shell.html -->
+
+<div ng-controller="shellCtrl">
+
+    <!-- show setting menus -->
+
+    <div layout="row" layout-align="center center">
+        <!-- show setting menus -->
+        <div ng-include src="'app/setting/setting.html'"></div>
+
+        <!-- show display menus -->
+        <div ng-include src="'app/layout/shell_menu.html'"></div>
+    </div>
+
+    <!-- show earthquake map -->
+
+    <div ng-show="shell.showMap" class="vis">
+        <earthquake-map id="earthquake_map" timestamp='{{shell.timestamp}}' get-source='shell.getSource()' pos='{{shell.pos}}' pos-callback='shell.posCallback(pos)'></earthquake-map>
+    </div>
+
+    <!-- show earthquake detail list -->
+
+    <div ng-show="shell.showDetail" class="vis">
+        <earthquake-detail id="earthquake_detail" timestamp='{{shell.timestamp}}' get-source='shell.getSource()'></earthquake-detail>
+    </div>
+
+</div>

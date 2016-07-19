@@ -1,0 +1,38 @@
+<!-- setting.html -->
+
+<div id="setting" layout="row" layout-align="center center" ng-controller="settingCtrl">
+    <md-content layout-padding >
+        <md-datepicker ng-model="setting.date" md-placeholder="Enter date"></md-datepicker>
+
+        <span></span> <span></span>
+
+        <md-input-container>
+            <label>Range</label>
+            <md-select ng-model="setting.range"> 
+                <md-option ng-repeat="days in setting.rangeOptions" value="{{days}}">
+                    {{days}} 
+                    <span ng-if="days===1">day</span>
+                    <span ng-if="days!==1">days</span>
+                </md-option>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container>
+            <label>Magnitude</label>
+            <md-select ng-model="setting.mag"> 
+                <md-option ng-repeat="mag in setting.magOptions" value="{{mag}}">
+                    {{mag}} 
+                </md-option>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container>
+            <label>Location</label>
+            <md-select ng-model="setting.city"> 
+                <md-option ng-repeat="city in setting.cityOptions" value="{{city}}">
+                    {{city}} 
+                </md-option>
+            </md-select>
+        </md-input-container>
+    </md-content>
+</div>
