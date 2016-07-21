@@ -2,6 +2,8 @@
 
 Earthquake map shows earthquake data such as magnitude and depth from USGS. You can specify date, range of days, minimum magnitude and location. Also you can choose map view or detail view.
 
+![earthquake_map](https://cloud.githubusercontent.com/assets/20022968/17012231/a015ec34-4eca-11e6-93cf-0c3aee47790f.png)
+
 ### Version
 1.0.0
 
