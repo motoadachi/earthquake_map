@@ -2,13 +2,13 @@
 
 <div id="setting" layout="row" layout-align="center center" ng-controller="settingCtrl">
     <md-content layout-padding >
-        <md-datepicker ng-model="setting.date" md-placeholder="Enter date"></md-datepicker>
+        <md-datepicker ng-model="setting.date" md-placeholder="Enter date" ng-change="setting.updateDate()"></md-datepicker>
 
         <span></span> <span></span>
 
         <md-input-container>
             <label>Range</label>
-            <md-select ng-model="setting.range"> 
+            <md-select ng-model="setting.range" ng-change="setting.updateRange()"> 
                 <md-option ng-repeat="days in setting.rangeOptions" value="{{days}}">
                     {{days}} 
                     <span ng-if="days===1">day</span>
@@ -19,7 +19,7 @@
 
         <md-input-container>
             <label>Magnitude</label>
-            <md-select ng-model="setting.mag"> 
+            <md-select ng-model="setting.mag" ng-change="setting.updateMag()"> 
                 <md-option ng-repeat="mag in setting.magOptions" value="{{mag}}">
                     {{mag}} 
                 </md-option>
@@ -28,7 +28,7 @@
 
         <md-input-container>
             <label>Location</label>
-            <md-select ng-model="setting.city"> 
+            <md-select ng-model="setting.city" ng-change="setting.updateCity()"> 
                 <md-option ng-repeat="city in setting.cityOptions" value="{{city}}">
                     {{city}} 
                 </md-option>

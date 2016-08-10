@@ -19,6 +19,7 @@ function shellCtrl($scope, $route, $routeParams, $location, $timeout, dataServic
     $scope.shell.updatePos = updatePos;
     $scope.shell.updateParam = updateParam;
     $scope.shell.getSource = getSource;
+    $scope.shell.updateVisMode = updateVisMode;
 
     // set services
     $scope.dataService = dataService;
@@ -31,19 +32,15 @@ function shellCtrl($scope, $route, $routeParams, $location, $timeout, dataServic
     $scope.visService.setParamCallback($scope.shell.updateParam);
 
     // toggle map view and detail view
-    $scope.$watch(
-        function(scope){return scope.shell.visMode;},
-        function(newValue, oldValue){
-            if (newValue === oldValue){ return; }
-            if (newValue == "Map"){
-                $scope.shell.showMap = true;
-                $scope.shell.showDetail = false;
-            }else{
-                $scope.shell.showMap = false;
-                $scope.shell.showDetail = true;
-            }
+    function updateVisMode(){
+        if ($scope.shell.visMode === 'Map'){
+            $scope.shell.showMap = true;
+            $scope.shell.showDetail = false;
+        }else{
+            $scope.shell.showMap = false;
+            $scope.shell.showDetail = true;
         }
-    );
+    }
 
     // get position data from earthquake map and store it to visService.
     function posCallback(pos){

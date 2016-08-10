@@ -1,6 +1,6 @@
 {
   "name": "earthquake_map",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This app shows earthquakes with magnitude and depth.",
   "main": "index.html",
   "scripts": {

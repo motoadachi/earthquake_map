@@ -17,47 +17,35 @@ function settingCtrl($scope, $timeout, dataService, visService){
     $scope.setting.city = getClosestCity();
     $scope.setting.cityOptions = ['Tokyo', 'Los Angeles', 'Peru', 'Sumatra', 'Mexico city', 'Rome', 'Other'];
     $scope.setting.settingCallback = settingCallback;
+    $scope.setting.updateDate = updateDate;
+    $scope.setting.updateMag = updateMag;
+    $scope.setting.updateRange = updateRange;
+    $scope.setting.updateCity = updateCity;
 
     // update date
-    $scope.$watch(
-        function(scope){return scope.setting.date;},
-        function(newValue, oldValue){
-            if (newValue === oldValue){ return; }
-            $scope.dataService.updateDate($scope.setting.date);
-        }
-    );
+    function updateDate(){
+        $scope.dataService.updateDate($scope.setting.date);
+    }
 
     // update magnitude
-    $scope.$watch(
-        function(scope){return scope.setting.mag;},
-        function(newValue, oldValue){
-            if (newValue === oldValue){ return; }
-            $scope.dataService.updateMag($scope.setting.mag);
-        }
-    );
+    function updateMag(){
+        $scope.dataService.updateMag($scope.setting.mag);
+    }
 
     // update range
-    $scope.$watch(
-        function(scope){return scope.setting.range;},
-        function(newValue, oldValue){
-            if (newValue === oldValue){ return; }
-            $scope.dataService.updateRange($scope.setting.range);
-        }
-    );
+    function updateRange(){
+        $scope.dataService.updateRange($scope.setting.range);
+    }
 
     // update postion by city
-    $scope.$watch(
-        function(scope){return scope.setting.city;},
-        function(newValue, oldValue){
-            if (newValue === oldValue){ return; }
-            var city = $scope.setting.city;
-            if (city != "Other"){
-                var cityPos = getCityPos();
-                var pos = cityPos[city];
-                $scope.visService.updatePos(pos);
-            }
+    function updateCity(){
+        var city = $scope.setting.city;
+        if (city != "Other"){
+            var cityPos = getCityPos();
+            var pos = cityPos[city];
+            $scope.visService.updatePos(pos);
         }
-    );
+    }
 
     // get position of city
     function getCityPos(){

@@ -4,7 +4,7 @@
     <md-content layout-padding >
         <md-input-container>
             <label>View</label>
-            <md-select ng-model="shell.visMode"> 
+            <md-select ng-model="shell.visMode" ng-change="shell.updateVisMode()"> 
                 <md-option ng-repeat="vis in shell.visModeOptions" value="{{vis}}">
                     {{vis}} 
                 </md-option>
