@@ -109,7 +109,7 @@ function dataService($http, $routeParams){
 
     // load data from USGS
     function loadData(){
-        var usgsUrl = "http://earthquake.usgs.gov/fdsnws/event/1/query?" +
+        var usgsUrl = "https://earthquake.usgs.gov/fdsnws/event/1/query?" +
                       "format=geojson" +
                       "&starttime="+ self.data.query.startTime +
                       "&endtime="+ self.data.query.endTime +
